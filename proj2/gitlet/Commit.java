@@ -23,10 +23,8 @@ public class Commit implements Serializable {
 
     public Commit(String message, Commit parent, Commit secondParent, String mergeId) {
         Date date = new Date();
-        Formatter formatter = new Formatter();
-        TimeZone.getDefault();
-        formatter.format("%ta %tb %td %tT %tY %tz", date, date, date, date, date, date);
-        outterdate = formatter.toString();
+        Formatter formatter = new Formatter(Locale.US);
+        outterdate = formatter.format("%ta %tb %td %tT %tY %tz", date, date, date, date, date, date).toString();
         this.message = message;
         this.parent = parent;
         this.secondParent = secondParent;
